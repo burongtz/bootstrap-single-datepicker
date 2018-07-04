@@ -1,7 +1,7 @@
 {
-  "name": "select2-autocomplete",
+  "name": "single-datepicker",
   "version": "1.0.3",
-  "description": "A jQuery plugin to autocomplete, useful in searches.",
+  "description": "A jQuery plugin for bootstrap datepicker, useful in single datepicker.",
   "main": "index.js",
   "scripts": {
     "dev": "NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/burongtz/select2-autocomplete.git"
+    "url": "git+https://github.com/burongtz/bootstrap-single-datepicker.git"
   },
   "keywords": [],
   "author": "Javier Burón Gutiérrez",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/burongtz/select2-autocomplete/issues"
+    "url": "https://github.com/burongtz/bootstrap-single-datepicker/issues"
   },
-  "homepage": "https://github.com/burongtz/select2-autocomplete#readme",
+  "homepage": "https://github.com/burongtz/bootstrap-single-datepicker#readme",
   "devDependencies": {
     "bootstrap": "^4.1.1",
     "bootstrap-datepicker": "^1.8.0",
