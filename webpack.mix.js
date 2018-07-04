@@ -15,7 +15,7 @@ const config = {
         "jquery": "jQuery",
         "bootstrap": 'Bootstrap',
         "bootstrap-datepicker": "bootstrap-datepicker",
-        "moment": "moment"
+        "moment": "Moment"
     },
     output: {
         library: 'singleDatepicker',

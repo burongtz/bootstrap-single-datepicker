@@ -1,5 +1,3 @@
-import moment from 'moment';
-
 let App = (function () {
     let format = null;
     let formatUppercase = null;
@@ -12,8 +10,6 @@ let App = (function () {
         $dpicker = $self.data('datepicker');
         format = $dpicker.o.format;
         formatUppercase = format.toUpperCase(format);
-
-        console.log($self.data());
 
         addHTML($self, $dpicker.o.language);
         addEvents($self);
@@ -73,7 +69,7 @@ let App = (function () {
             newHTML = '\
                 <tr>\
                     <th colspan="100">\
-                        <select id="select-year" class="select2"></select>\
+                        <select id="select-year"></select>\
                         <select id="select-month"></select>\
                     </th>\
                 </tr>\
