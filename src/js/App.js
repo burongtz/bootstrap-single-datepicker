@@ -26,7 +26,7 @@ let App = (function () {
 
             $picker.off();
 
-            $(document).on('click', '.datepicker .day', function(e) {
+            $picker.on('click', '.datepicker-days .day', function(e) {
                 let $target = $(e.currentTarget);
                 let date = new Date($target.data('date'));
                 let configDate = {
@@ -41,7 +41,7 @@ let App = (function () {
                 $months.val(configDate.month + 1);
 
                 date = moment(configDate);
-                $self.datepicker('update', date.format(formatUppercase));
+                $self.datepicker('setDate', date.format(formatUppercase));
             });
         });
     }
@@ -125,7 +125,7 @@ let App = (function () {
             newDate.month($months.val() - 1);
             newDate.day(1);
     
-            $self.datepicker('update', newDate.format(formatUppercase));
+            $self.datepicker('setDate', newDate.format(formatUppercase));
         });
     
         $months.on('change', function(e) {
@@ -135,7 +135,7 @@ let App = (function () {
             newDate.month(this.value - 1);
             newDate.day(1);
     
-            $self.datepicker('update', newDate.format(formatUppercase));
+            $self.datepicker('setDate', newDate.format(formatUppercase));
         });
     }
 
