@@ -1,26 +1,25 @@
 let App = (function () {
     let format = null;
     let formatUppercase = null;
-    let $dpicker = null;
 
     function App(pluginName, $self, options) {
         this.$self = $self;
         this.options = $.extend({}, $.fn[pluginName].getDefaults(), options);
 
-        $dpicker = $self.data('datepicker');
+        let $dpicker = $self.data('datepicker');
         format = $dpicker.o.format;
         formatUppercase = format.toUpperCase(format);
 
-        addHTML($self, $dpicker.o.language);
-        addEvents($self);
-        onShowDpicker($self);
+        addHTML($self, $dpicker);
+        addEvents($self, $dpicker);
+        onShowDpicker($self, $dpicker);
     }
 
     /**
      * 
      * @param {*} $self 
      */
-    function onShowDpicker($self) {
+    function onShowDpicker($self, $dpicker) {
         $self.datepicker().on('show', function(e) {
             let $picker = $dpicker.picker;
 
@@ -51,14 +50,15 @@ let App = (function () {
      * @param {*} $self 
      * @param {*} lang 
      */
-    function addHTML($self, lang) {
+    function addHTML($self, $dpicker) {
         let $picker = $dpicker.picker,
             $pickerHead = $picker.find('thead'),
             $years = null,
             $months = null,
             newHTML = '',
             now = moment(),
-            currentDate = null;
+            currentDate = null,
+            lang = $dpicker.o.language;
     
             if ($self.val() != '') {
                 currentDate = moment($self.val(), formatUppercase);
@@ -76,7 +76,10 @@ let App = (function () {
             ';
         $pickerHead.find('tr:eq(1)')
             .after(newHTML);
-        $pickerHead.find('.datepicker-switch').parent().hide();
+        $pickerHead.find('.datepicker-switch')
+            .parent()
+            .hide();
+        $picker.addClass('single-datepicker');
         
         // Add years
         $years = $picker.find('#select-year');
@@ -110,7 +113,7 @@ let App = (function () {
      * 
      * @param {*} $self 
      */
-    function addEvents($self) {
+    function addEvents($self, $dpicker) {
         let $picker = $dpicker.picker,
             $years = null,
             $months = null;
