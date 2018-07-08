@@ -14,12 +14,12 @@
             <div class="col-sm-6 offset-sm-3">
                     <div class="form-group mt-5">
                         <label>Date:</label>
-                        <input type="text" class="dpicker text-center form-control sdpicker" id="primero">
+                        <input type="text" class="dpicker text-center form-control sdpicker" id="primero" data-date-format="yyyy mm dd">
                     </div>
 
                     <div class="form-group mt-5">
                         <label>Date:</label>
-                        <input type="text" class="dpicker text-center form-control sdpicker" id="segundo">
+                        <input type="text" class="dpicker text-center form-control sdpicker" id="segundo" data-date-format="dd/mm/yyyy">
                     </div>
             </div>
         </div>
@@ -31,9 +31,7 @@
     <script src="../dist/js/single-datepicker.js"></script>
     <script>
         $(function() {
-            $('.dpicker').datepicker({
-                format: 'dd/mm/yyyy'
-            });
+            $('.dpicker').datepicker();
 
             $('.sdpicker').singleDatepicker();
         });
