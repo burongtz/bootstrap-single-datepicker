@@ -56,7 +56,8 @@ let App = (function () {
             $years = null,
             $months = null,
             newHTML = '',
-            now = moment(),
+            minYears = 1850,
+            maxYears = 2030,
             currentDate = null,
             lang = $dpicker.o.language;
     
@@ -80,10 +81,18 @@ let App = (function () {
             .parent()
             .hide();
         $picker.addClass('single-datepicker');
+
+        if ($self.data('years-min') !== void 0) {
+            minYears = parseInt($self.data('years-min'));
+        }
+
+        if ($self.data('years-max') !== void 0) {
+            maxYears = parseInt($self.data('years-max'));
+        }
         
         // Add years
         $years = $picker.find('#select-year');
-        for (let i = 1850; i <= now.year(); i++) {
+        for (let i = minYears; i <= maxYears; i++) {
             let attr = { text: i };
     
             if (i === currentDate.year()) {
