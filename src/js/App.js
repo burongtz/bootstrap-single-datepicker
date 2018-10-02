@@ -133,9 +133,9 @@ let App = (function () {
         $years.on('change', function(e) {
             let newDate = moment();
     
-            newDate.year(this.value);
-            newDate.month($months.val() - 1);
-            newDate.day(1);
+            newDate.set('year', this.value);
+            newDate.set('month', $months.val() - 1);
+            newDate.set('date', 1);
     
             $self.datepicker('setDate', newDate.format(formatUppercase));
         });
@@ -143,10 +143,10 @@ let App = (function () {
         $months.on('change', function(e) {
             let newDate = moment();
     
-            newDate.year($years.val());
-            newDate.month(this.value - 1);
-            newDate.day(1);
-    
+            newDate.set('year', $years.val());
+            newDate.set('month', this.value - 1);
+            newDate.set('date', 1);
+
             $self.datepicker('setDate', newDate.format(formatUppercase));
         });
     }
